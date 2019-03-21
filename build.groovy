@@ -8,7 +8,6 @@ job('version1') {
         }
     }
     steps {
-        shell('docker-compose build')
-        shell('docker-compose up -d')
+        shell('docker run -v ${pwd}:/app --rm phpunit/phpunit tests')
     }
 }
