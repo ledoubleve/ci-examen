@@ -2,7 +2,7 @@ job('version1') {
     scm {
         git {
             remote {
-                url('git@github.com:romoliere/ci-examen.git')
+                url('https://github.com/romoliere/ci-examen.git')
             }
             branch('v1')
         }
