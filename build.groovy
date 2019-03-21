@@ -38,7 +38,7 @@ job('version3') {
             remote {
                 url('https://github.com/romoliere/ci-examen.git')
             }
-            branch('v2')
+            branch('v3')
         }
     }
     steps {
