@@ -32,7 +32,7 @@ job('version2') {
         shell('docker run -v ${pwd}:/app --rm phpunit/phpunit tests')
     }
 }
-job('version2') {
+job('version3') {
     scm {
         git {
             remote {
