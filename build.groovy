@@ -8,6 +8,6 @@ job('version1') {
         }
     }
     steps {
-        shell('docker run -v ${pwd}:/app --rm phpunit/phpunit ci-examen/tests')
+        shell('docker run -v ${pwd}:/app --rm phpunit/phpunit tests')
     }
 }
