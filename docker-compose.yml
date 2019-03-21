@@ -17,6 +17,8 @@ services:
         ports:
             - 80:80
             - 443:443
+        links:
+            - db
 
     php:
         build: ./docker/php
@@ -24,6 +26,10 @@ services:
         working_dir: /srv
         volumes:
             - ./:/srv/
+        links:
+            - db
+        depends_on:
+            - db
 
     jenkins:
         build:
@@ -31,14 +37,16 @@ services:
                 ./docker/jenkins
         ports:
             - 8080:8080
+        volumes:
+            - //var/run/docker.sock:/var/run/docker.sock
 
     db:
         build: ./docker/mariadb
         environment:
-            - MYSQL_ROOT_PASSWORD
-            - MYSQL_DATABASE
-            - MYSQL_USER
-            - MYSQL_PASSWORD
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=database
+            - MYSQL_USER=php_user
+            - MYSQL_PASSWORD=sdrugntqqsciur
         volumes:
             - mariadb:/var/lib/mysql
 
